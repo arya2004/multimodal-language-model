@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 from siglip.siglip_config import SiglipConfig
-
+from siglip.siglip_embeddings import SiglipEmbeddings
 
 class SiglipTransformer(nn.Module):
 
