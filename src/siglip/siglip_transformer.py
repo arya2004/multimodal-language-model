@@ -4,6 +4,7 @@ import torch.nn as nn
 
 from siglip.siglip_config import SiglipConfig
 from siglip.siglip_embeddings import SiglipEmbeddings
+from siglip.siglip_encoder import SiglipEncoderLayer
 
 class SiglipTransformer(nn.Module):
 
@@ -13,7 +14,7 @@ class SiglipTransformer(nn.Module):
         self.config = config
         embedding_dimension = config.hidden_size
         self.embeddings = SiglipEmbeddings(config)
-        self.encoder = SiglipEncoder(config)
+        self.encoder = SiglipEncoderLayer(config)
         self.post_layernorm = nn.LayerNorm(embedding_dimension, eps=config.layer_norm_eps)
 
     # converts [batchSize, channel, height, width] to [batchSize, num of patches, embedding dimension]

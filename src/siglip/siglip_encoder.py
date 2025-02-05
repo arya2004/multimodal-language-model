@@ -3,6 +3,8 @@ import torch
 import torch.nn as nn
 
 from siglip.siglip_config import SiglipConfig
+from siglip.siglip_mlp import SiglipMLP
+from siglip.siglip_attention import SiglipAttention
 
 class SiglipEncoderLayer(nn.Module):
     def __init__(self, config: SiglipConfig):
