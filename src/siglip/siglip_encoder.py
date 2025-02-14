@@ -30,3 +30,20 @@ class SiglipEncoderLayer(nn.Module):
         hidden_states = residual + hidden_states
 
         return hidden_states
+    
+
+class SiglipEncoder(nn.Module):
+    def __init__(self, config: SiglipConfig):
+        super().__init__()
+        self.config = config
+        self.layers = nn.ModuleList(
+            [SiglipEncoderLayer(config) for _ in range(config.num_hidden_layers)]
+        )
+
+    def forward(self, input_embeds: torch.Tensor) -> torch.Tensor:
+        hidden_states = input_embeds
+
+        for encoder_layer in self.layers:
+            hidden_states = encoder_layer(hidden_states)
+
+        return hidden_states
