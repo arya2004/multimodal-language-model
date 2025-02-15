@@ -5,7 +5,7 @@ import torch.nn as nn
 from siglip.siglip_config import SiglipConfig
 from siglip.siglip_transformer import SiglipTransformer
 
-class Siglip(nn.Module):
+class SiglipVisionModel(nn.Module):
 
     def __init__(self, config: SiglipConfig):
         super().__init__()
