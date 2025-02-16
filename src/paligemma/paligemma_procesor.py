@@ -8,7 +8,7 @@ IMAGENET_STANDARD_MEAN = [0.5, 0.5, 0.5]
 IMAGENET_STANDARD_STD = [0.5, 0.5, 0.5]
 
 
-class PaliGemmaPrecessor:
+class PaliGemmaProcessor:
 
     IMAGE_TOKEN = "<image>"
 
