@@ -6,6 +6,7 @@ import math
 from gemma.palligemma_config import PaliGemmaConfig
 from siglip.siglip import SiglipVisionModel
 from siglip.siglip_config import SiglipConfig
+from gemma.palligemma_multimodal_projector import PaliGemmaMultiModalProjector
 
 class PaliGemmaForConditionalGeneration(nn.Module):
 
@@ -13,6 +14,7 @@ class PaliGemmaForConditionalGeneration(nn.Module):
         super().__init__()
         self.config = config
         self.vision_tower = SiglipVisionModel(config.vision_config)
+        self.multi_modal_projector = PaliGemmaMultiModalProjector(config)
         self.vocab_size = config.vocab_size
 
         language_model = GemmaForCasualLM(config.text_config)
